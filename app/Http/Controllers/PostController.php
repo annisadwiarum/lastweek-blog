@@ -12,15 +12,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('posts', [
+            "title" => "Posts",
+            "posts" => Post::all()
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function show($slug)
     {
-        //
+        return view('posts', [
+            "title" => "Posts",
+            "posts" => Post::find($slug)
+        ]);
     }
 
     /**
@@ -34,7 +40,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function create(Post $post)
     {
         //
     }
